@@ -1,11 +1,11 @@
 // webpack.config.js
 var path = require('path')
 var webpack = require('webpack');
-require('./style.css');
-require('./demo.png');
+// require('./style.css');
+// require('./demo.png');
 
 module.exports = {
-  entry: ['./src/index','./style.css','./demo.png'],
+  entry: ['./src/index','./src/style.css', './src/demo.png'],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -26,7 +26,7 @@ module.exports = {
         test: /\.(png|jpg)$/,
         loaders: [
             'file?hash=sha512&digest=hex&name=[hash].[ext]',
-            'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+            // 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ]
     }]
   }
