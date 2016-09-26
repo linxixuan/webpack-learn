@@ -5,9 +5,6 @@
   "author": "green",
   "private": true,
   "scripts": {
-    "dev": "",
-    "build": "",
-    "test": "",
     "start": "webpack"
   },
   "dependencies": {

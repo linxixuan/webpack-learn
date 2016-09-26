@@ -1,33 +1,24 @@
-// webpack.config.js
 var path = require('path')
 var webpack = require('webpack');
-// require('./style.css');
-// require('./demo.png');
 
 module.exports = {
-  entry: ['./src/index','./src/style.css', './src/demo.png'],
+  entry: ['./src/index','./src/style.css', './src/demo.png', './src/index.html'],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false,
-      },
-    })
-  ],
   module: {
     loaders: [{
       test: /\.css$/,
-      loaders: ['style', 'css']
-    },
-    {
-        test: /\.(png|jpg)$/,
-        loaders: [
-            'file?hash=sha512&digest=hex&name=[hash].[ext]',
-            // 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-        ]
+      loaders: ['style', 'css', 'postcss'] // style-loader/ css-loader / postcss-loader
+    }, {
+    test: /\.(png|jpg)$/,
+    loaders: [
+        'file?hash=sha512&digest=hex&name=[hash].[ext]',
+        // 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+    ]}, {
+    test: /\.html$/,
+    loaders: ['html']
     }]
   }
 }
